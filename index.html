@@ -63,15 +63,32 @@
 
     <!-- Hero Section / Home -->
     <section id="home" class="hero-section">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h1>Integrated Waste Water Solution</h1>
-                <p class="hero-tagline">Reduce, Reuse, Recycle...</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
-                    <a href="#products" class="btn btn-secondary">Our Products</a>
-                </div>
+        <div class="hero-slides">
+            <div class="hero-slide active" data-bg="1" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80');"></div>
+            <div class="hero-slide" data-bg="2" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=80');"></div>
+            <div class="hero-slide" data-bg="3" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Integrated Waste Water Solution</h1>
+            <p class="hero-tagline">Reduce, Reuse, Recycle...</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get Started</a>
+                <a href="#products" class="btn btn-secondary">Our Products</a>
             </div>
+        </div>
+        <div class="hero-controls">
+            <button class="hero-arrow hero-prev" onclick="changeHeroSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="hero-dots">
+                <span class="hero-dot active" onclick="goToSlide(0)"></span>
+                <span class="hero-dot" onclick="goToSlide(1)"></span>
+                <span class="hero-dot" onclick="goToSlide(2)"></span>
+            </div>
+            <button class="hero-arrow hero-next" onclick="changeHeroSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </section>
 

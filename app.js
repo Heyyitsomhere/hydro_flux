@@ -248,6 +248,79 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Hero Slider Functions
+let currentSlide = 0;
+const totalSlides = 3;
+
+function changeHeroSlide(direction) {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    
+    currentSlide += direction;
+    
+    if (currentSlide < 0) {
+        currentSlide = totalSlides - 1;
+    } else if (currentSlide >= totalSlides) {
+        currentSlide = 0;
+    }
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+function goToSlide(index) {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    
+    currentSlide = index;
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+// Auto-rotate hero slides every 5 seconds
+let heroInterval;
+
+function startHeroAutoSlide() {
+    heroInterval = setInterval(() => {
+        changeHeroSlide(1);
+    }, 5000);
+}
+
+// Stop auto-slide on user interaction
+function stopHeroAutoSlide() {
+    clearInterval(heroInterval);
+}
+
+// Initialize hero slider
+document.addEventListener('DOMContentLoaded', () => {
+    const heroArrows = document.querySelectorAll('.hero-arrow');
+    const heroDots = document.querySelectorAll('.hero-dot');
+    
+    heroArrows.forEach(arrow => {
+        arrow.addEventListener('click', () => {
+            stopHeroAutoSlide();
+            startHeroAutoSlide();
+        });
+    });
+    
+    heroDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            stopHeroAutoSlide();
+            startHeroAutoSlide();
+        });
+    });
+    
+    // Start auto-slide
+    startHeroAutoSlide();
+});
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     loadData();

@@ -481,11 +481,37 @@ section {
     transition: all 0.3s ease;
     text-align: center;
     border-top: 4px solid #2a5298;
+    position: relative;
+    overflow: hidden;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.product-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(30, 60, 114, 0.95), transparent);
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-card-overlay {
+    transform: translateY(0);
+}
+
+.product-card-link {
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .product-card i {
@@ -940,6 +966,149 @@ section {
     }
 }
 
+/* Product Modal Styles */
+.product-modal-content {
+    max-width: 700px;
+}
+
+.product-modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.product-modal-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.product-modal-header h2 {
+    color: #1e3c72;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.product-modal-body {
+    margin-bottom: 30px;
+}
+
+.product-modal-body p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+.product-modal-footer {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding-top: 20px;
+    border-top: 2px solid #e9ecef;
+}
+
+.product-modal-footer {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding-top: 20px;
+    border-top: 2px solid #e9ecef;
+    flex-wrap: wrap;
+}
+
+.product-modal-footer .btn {
+    min-width: 150px;
+    flex: 1;
+    max-width: 200px;
+}
+
+/* PDF Modal Styles */
+.pdf-modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.pdf-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    border-radius: 15px 15px 0 0;
+}
+
+.pdf-modal-header h2 {
+    color: #1e3c72;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.pdf-modal-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pdf-modal-controls .close-modal {
+    position: static;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s;
+}
+
+.pdf-modal-controls .close-modal:hover {
+    color: #1e3c72;
+}
+
+.pdf-modal-body {
+    flex: 1;
+    overflow: hidden;
+    background: #e9ecef;
+}
+
+.pdf-modal-body {
+    flex: 1;
+    overflow: auto;
+    background: #e9ecef;
+    position: relative;
+}
+
+#pdf-viewer-container {
+    width: 100%;
+    height: 100%;
+    min-height: calc(90vh - 100px);
+}
+
+.pdf-modal-body iframe {
+    width: 100%;
+    height: calc(90vh - 100px);
+    min-height: 600px;
+    border: none;
+    background: white;
+    display: block;
+}
+
+#pdf-loading, #pdf-error-message {
+    min-height: calc(90vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .top-bar-container {
@@ -1029,6 +1198,53 @@ section {
 
     .modal-content h2 {
         font-size: 1.5rem;
+    }
+
+    .product-modal-footer {
+        flex-direction: column;
+    }
+
+    .product-modal-footer .btn {
+        width: 100%;
+    }
+
+    .product-modal-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .product-modal-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .product-modal-footer {
+        flex-direction: column;
+    }
+
+    .product-modal-footer .btn {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .pdf-modal-content {
+        max-width: 95%;
+        max-height: 95vh;
+    }
+
+    .pdf-modal-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .pdf-modal-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .pdf-modal-body iframe {
+        height: calc(95vh - 150px);
     }
 }
 

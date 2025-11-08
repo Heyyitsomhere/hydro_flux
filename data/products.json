@@ -4,56 +4,63 @@
     "name": "Sewage Treatment Plants",
     "shortName": "STP",
     "icon": "fa-recycle",
-    "description": "Sewage Treatment Plants (STPs) play a vital role in managing wastewater from various sources and transforming it into clean, reusable water. Our advanced STP systems ensure efficient treatment and compliance with environmental standards."
+    "description": "Sewage Treatment Plants (STPs) play a vital role in managing wastewater from various sources and transforming it into clean, reusable water. Our advanced STP systems ensure efficient treatment and compliance with environmental standards.",
+    "detailedDescription": "Sewage Treatment Plants (STPs) are essential infrastructure components that play a crucial role in managing wastewater from residential, commercial, and industrial sources. Our advanced STP systems utilize cutting-edge biological and chemical treatment processes to transform raw sewage into clean, reusable water that meets stringent environmental standards. These systems effectively remove organic matter, suspended solids, nutrients, and harmful pathogens through a combination of primary, secondary, and tertiary treatment stages. Our STP solutions are designed to handle varying capacities, from small-scale residential units to large municipal treatment facilities. We ensure compliance with all environmental regulations while minimizing operational costs and maximizing treatment efficiency. Our plants feature automated controls, energy-efficient designs, and robust construction materials that ensure long-term reliability and performance."
   },
   {
     "id": 2,
     "name": "Effluent Treatment Plants",
     "shortName": "ETP",
     "icon": "fa-industry",
-    "description": "Our ETP systems are meticulously designed to effectively treat industrial effluents, ensuring compliance with regulatory standards while minimizing environmental impact. We provide customized solutions for various industries."
+    "description": "Our ETP systems are meticulously designed to effectively treat industrial effluents, ensuring compliance with regulatory standards while minimizing environmental impact. We provide customized solutions for various industries.",
+    "detailedDescription": "Effluent Treatment Plants (ETPs) are specialized wastewater treatment systems designed to handle industrial effluents that contain a wide variety of contaminants, chemicals, and pollutants. Our ETP systems are meticulously engineered to effectively treat these complex waste streams, ensuring compliance with stringent regulatory standards while minimizing environmental impact. We provide customized solutions tailored to specific industry requirements, including chemical manufacturing, pharmaceuticals, textiles, food processing, and many others. Our treatment processes incorporate advanced technologies such as coagulation, flocculation, biological treatment, activated sludge processes, and advanced oxidation to remove contaminants effectively. The systems are designed with flexibility to handle varying influent characteristics and flow rates. We focus on optimizing resource recovery, reducing water consumption, and ensuring sustainable operations. Our ETP solutions help industries meet their environmental responsibilities while maintaining operational efficiency and cost-effectiveness."
   },
   {
     "id": 3,
     "name": "Ultra Filtration System",
     "shortName": "UF",
     "icon": "fa-filter",
-    "description": "Our UFS systems utilize advanced membrane technology to effectively remove suspended solids, bacteria, viruses, and other contaminants, delivering high-quality treated water for various applications."
+    "description": "Our UFS systems utilize advanced membrane technology to effectively remove suspended solids, bacteria, viruses, and other contaminants, delivering high-quality treated water for various applications.",
+    "detailedDescription": "Ultra Filtration (UF) Systems represent a state-of-the-art membrane filtration technology that effectively removes suspended solids, bacteria, viruses, and other microscopic contaminants from water. Our UF systems utilize advanced membrane technology with pore sizes typically ranging from 0.01 to 0.1 microns, making them highly effective for water purification applications. These systems operate on a cross-flow filtration principle, ensuring continuous operation with minimal fouling and maximum efficiency. UF systems are widely used in various applications including pre-treatment for reverse osmosis systems, drinking water treatment, wastewater reuse, and process water treatment in industries such as food and beverage, pharmaceuticals, and electronics manufacturing. Our UF systems feature automated backwashing, chemical cleaning capabilities, and energy-efficient designs. They provide excellent removal of turbidity, pathogens, and organic matter while maintaining low operational costs. The modular design allows for easy expansion and maintenance, making them suitable for both small-scale and large-scale applications."
   },
   {
     "id": 4,
     "name": "Zero Liquid Discharge",
     "shortName": "ZLD",
     "icon": "fa-water",
-    "description": "Our ZLD systems are designed to effectively treat industrial waste water and eliminate liquid discharge, ensuring complete water recovery and zero environmental impact. Perfect for industries with strict environmental regulations."
+    "description": "Our ZLD systems are designed to effectively treat industrial waste water and eliminate liquid discharge, ensuring complete water recovery and zero environmental impact. Perfect for industries with strict environmental regulations.",
+    "detailedDescription": "Zero Liquid Discharge (ZLD) systems represent the pinnacle of wastewater treatment technology, designed to completely eliminate liquid discharge while recovering virtually all water from industrial waste streams. Our ZLD systems are engineered to effectively treat and concentrate wastewater to the point where all water is recovered and reused, leaving only solid waste for disposal or beneficial reuse. This technology is particularly crucial for industries operating in water-stressed regions or those subject to stringent environmental regulations. Our ZLD process typically involves multiple treatment stages including pre-treatment, reverse osmosis, evaporation, and crystallization. The systems are designed to handle high TDS (Total Dissolved Solids) concentrations and complex chemical compositions. ZLD solutions help industries achieve complete water sustainability by maximizing water recovery, minimizing fresh water consumption, and eliminating environmental discharge. While ZLD systems require higher initial investment, they provide long-term benefits through water cost savings, regulatory compliance, and environmental stewardship. Our ZLD systems are customized to handle specific waste characteristics and recovery requirements."
   },
   {
     "id": 5,
     "name": "Reverse Osmosis Plant",
     "shortName": "RO",
     "icon": "fa-tint",
-    "description": "Our RO plants are designed to remove impurities, contaminants, and dissolved solids from water, producing high-quality purified water suitable for drinking, industrial, and commercial applications."
+    "description": "Our RO plants are designed to remove impurities, contaminants, and dissolved solids from water, producing high-quality purified water suitable for drinking, industrial, and commercial applications.",
+    "detailedDescription": "Reverse Osmosis (RO) Plants are advanced water purification systems that utilize semi-permeable membrane technology to remove impurities, contaminants, and dissolved solids from water. Our RO plants are engineered to produce high-quality purified water suitable for a wide range of applications including drinking water, industrial process water, pharmaceutical manufacturing, food and beverage production, and commercial use. The RO process works by applying pressure to force water through a semi-permeable membrane that rejects dissolved salts, bacteria, viruses, and other contaminants. Our RO systems feature multi-stage filtration including pre-filtration, RO membrane filtration, and post-treatment polishing. The plants are designed with automated controls, energy recovery systems, and advanced monitoring capabilities. We offer RO systems in various capacities to meet different requirements, from small residential units to large industrial installations. Our RO plants ensure consistent water quality, low operational costs, and reliable performance. The systems are designed for easy maintenance and include features such as automatic flush, chemical cleaning systems, and remote monitoring capabilities."
   },
   {
     "id": 6,
     "name": "De Mineralization Plant",
     "shortName": "DM",
     "icon": "fa-flask",
-    "description": "Our DM plants are designed to remove dissolved salts and minerals from water, producing high-quality demineralized water essential for industries requiring ultra-pure water for their processes."
+    "description": "Our DM plants are designed to remove dissolved salts and minerals from water, producing high-quality demineralized water essential for industries requiring ultra-pure water for their processes.",
+    "detailedDescription": "Demineralization (DM) Plants are specialized water treatment systems designed to remove dissolved salts and minerals from water through ion exchange processes, producing high-quality demineralized or deionized water. Our DM plants are essential for industries requiring ultra-pure water for their manufacturing processes, including power generation, pharmaceuticals, electronics, chemical processing, and laboratory applications. The demineralization process typically involves two-stage ion exchange using cation and anion exchange resins that remove positively and negatively charged ions respectively. Our DM systems are designed with automatic regeneration capabilities, ensuring continuous operation with minimal manual intervention. The plants feature advanced control systems that monitor water quality, resin condition, and regeneration cycles. We offer various configurations including two-bed, mixed-bed, and multi-bed systems depending on the required water purity levels. Our DM plants ensure consistent production of high-purity water with low conductivity and minimal residual ions. The systems are designed for efficient chemical usage, reduced waste generation, and optimal operational costs."
   },
   {
     "id": 7,
     "name": "Mixed Bed Plant",
     "shortName": "Mixed Bed",
     "icon": "fa-layer-group",
-    "description": "Our Mixed Bed Plants combine the principles of ion exchange and filtration to achieve the highest levels of water purity, producing ultra-pure water with extremely low conductivity levels."
+    "description": "Our Mixed Bed Plants combine the principles of ion exchange and filtration to achieve the highest levels of water purity, producing ultra-pure water with extremely low conductivity levels.",
+    "detailedDescription": "Mixed Bed Plants are advanced water treatment systems that combine cation and anion exchange resins in a single vessel to achieve the highest levels of water purity. Our Mixed Bed Plants produce ultra-pure water with extremely low conductivity levels, typically below 0.1 microsiemens per centimeter, making them ideal for critical applications in power generation, electronics manufacturing, pharmaceutical production, and high-purity laboratory work. The mixed bed process provides superior water quality compared to conventional two-bed demineralization systems by ensuring complete removal of both cations and anions in a single pass. Our Mixed Bed Plants feature advanced regeneration systems that efficiently separate and regenerate the mixed resins. The systems are designed with automated controls that monitor water quality, resin condition, and regeneration requirements. We offer various configurations and capacities to meet specific purity and flow rate requirements. Our Mixed Bed Plants ensure consistent production of ultra-pure water with minimal operational complexity. The systems are designed for efficient operation, reduced chemical consumption, and optimal performance in producing the highest quality demineralized water."
   },
   {
     "id": 8,
     "name": "Water Softener Plant",
     "shortName": "Water Softener",
     "icon": "fa-tint-slash",
-    "description": "Our Water Softener Plants utilize ion exchange technology to effectively remove calcium, magnesium, and other hardness minerals from water, preventing scale formation and extending equipment life."
+    "description": "Our Water Softener Plants utilize ion exchange technology to effectively remove calcium, magnesium, and other hardness minerals from water, preventing scale formation and extending equipment life.",
+    "detailedDescription": "Water Softener Plants are essential water treatment systems that utilize ion exchange technology to effectively remove calcium, magnesium, and other hardness-causing minerals from water. Our Water Softener Plants prevent scale formation in pipes, boilers, heat exchangers, and other equipment, thereby extending equipment life, improving efficiency, and reducing maintenance costs. The softening process involves exchanging calcium and magnesium ions with sodium ions using specially formulated cation exchange resins. Our Water Softener Plants feature automatic regeneration systems that ensure continuous operation with minimal manual intervention. The systems are designed with advanced control valves that monitor water usage, resin capacity, and regeneration cycles. We offer various configurations including single-tank, twin-alternating, and multi-tank systems depending on flow requirements and continuity needs. Our Water Softener Plants are suitable for residential, commercial, and industrial applications including hotels, hospitals, manufacturing facilities, and power plants. The systems ensure consistent production of soft water with zero hardness, preventing scale deposits and improving the efficiency of downstream equipment. Our plants are designed for reliable operation, efficient salt usage, and minimal maintenance requirements."
   }
 ]
-

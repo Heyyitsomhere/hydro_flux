@@ -1,9 +1,12 @@
 // Data loading and dynamic content generation
 
+// Global variables
+let companyData = null;
+
 // Load JSON data
 async function loadData() {
     try {
-        const [productsData, testimonialsData, statsData, servicesData, newsData, companyData] = await Promise.all([
+        const [productsData, testimonialsData, statsData, servicesData, newsData, companyDataResponse] = await Promise.all([
             fetch('data/products.json').then(r => r.json()),
             fetch('data/testimonials.json').then(r => r.json()),
             fetch('data/statistics.json').then(r => r.json()),
@@ -13,7 +16,7 @@ async function loadData() {
         ]);
 
         // Load company information
-        loadCompanyInfo(companyData);
+        loadCompanyInfo(companyDataResponse);
         
         // Load products
         loadProducts(productsData);
@@ -36,6 +39,7 @@ async function loadData() {
 
 // Load company information
 function loadCompanyInfo(data) {
+    companyData = data; // Store globally for WhatsApp function
     document.getElementById('founded-year').textContent = data.founded;
     document.getElementById('vision-text').textContent = data.vision;
     document.getElementById('mission-text').textContent = data.mission;
@@ -50,14 +54,21 @@ function loadCompanyInfo(data) {
     document.getElementById('footer-email').textContent = data.contact.email;
 }
 
+// Store products data globally
+let productsData = [];
+
 // Load products
 function loadProducts(products) {
+    productsData = products; // Store for modal use
     const productsGrid = document.getElementById('products-grid');
-    productsGrid.innerHTML = products.map(product => `
-        <div class="product-card">
+    productsGrid.innerHTML = products.map((product, index) => `
+        <div class="product-card" onclick="openProductModal(${product.id})" style="cursor: pointer;">
             <i class="fas ${product.icon}"></i>
             <h3>${product.name}</h3>
             <p>${product.description}</p>
+            <div class="product-card-overlay">
+                <span class="product-card-link">Click for Details <i class="fas fa-arrow-right"></i></span>
+            </div>
         </div>
     `).join('');
     
@@ -65,10 +76,199 @@ function loadProducts(products) {
     const productsDropdown = document.getElementById('products-dropdown');
     if (productsDropdown) {
         productsDropdown.innerHTML = products.map(product => `
-            <li><a href="#products">${product.name}</a></li>
+            <li><a href="#products" onclick="openProductModal(${product.id}); return false;">${product.name}</a></li>
         `).join('');
     }
 }
+
+// Product Modal Functions
+let currentProductId = null;
+
+function openProductModal(productId) {
+    const product = productsData.find(p => p.id === productId);
+    if (!product) return;
+    
+    currentProductId = productId;
+    document.getElementById('product-modal-icon').className = `fas ${product.icon}`;
+    document.getElementById('product-modal-title').textContent = product.name;
+    document.getElementById('product-modal-description').textContent = product.detailedDescription || product.description;
+    
+    const modal = document.getElementById('product-modal');
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal() {
+    const modal = document.getElementById('product-modal');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+    currentProductId = null;
+}
+
+// Close product modal when clicking outside
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('product-modal');
+    if (e.target === modal) {
+        closeProductModal();
+    }
+});
+
+// PDF Functions
+function getProductPDFPath(productId) {
+    // Map product IDs to PDF file names
+    const pdfMap = {
+        1: 'products/Sewage_treatment.pdf', // STP - Using actual PDF file
+        2: 'products/Sewage_treatment.pdf',
+        3: 'products/Sewage_treatment.pdf',
+        4: 'products/Sewage_treatment.pdf',
+        5: 'products/Sewage_treatment.pdf',
+        6: 'products/Sewage_treatment.pdf',
+        7: 'products/Sewage_treatment.pdf',
+        8: 'products/Sewage_treatment.pdf'
+    };
+    return pdfMap[productId] || 'products/Sewage_treatment.pdf';
+}
+
+function getProductPDFName(productId) {
+    const product = productsData.find(p => p.id === productId);
+    if (!product) return 'Product-Catalog.pdf';
+    return `${product.shortName || product.name.replace(/\s+/g, '-')}-Catalog.pdf`;
+}
+
+function viewProductPDF() {
+    if (!currentProductId) return;
+    
+    const product = productsData.find(p => p.id === currentProductId);
+    const pdfPath = getProductPDFPath(currentProductId);
+    
+    // Get absolute URL - handle both file:// and http:// protocols
+    let pdfUrl;
+    if (window.location.protocol === 'file:') {
+        // For file:// protocol, use relative path
+        pdfUrl = pdfPath;
+    } else {
+        // For http:// or https://, create absolute URL
+        pdfUrl = new URL(pdfPath, window.location.origin).href;
+    }
+    
+    document.getElementById('pdf-modal-title').textContent = `${product.name} - Product Catalog`;
+    
+    const pdfModal = document.getElementById('pdf-modal');
+    const pdfViewer = document.getElementById('pdf-viewer');
+    const pdfError = document.getElementById('pdf-error-message');
+    const pdfLoading = document.getElementById('pdf-loading');
+    
+    // Show loading, hide error and viewer
+    pdfLoading.style.display = 'flex';
+    pdfError.style.display = 'none';
+    pdfViewer.style.display = 'none';
+    
+    pdfModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    
+    // Close product modal when opening PDF viewer
+    closeProductModal();
+    
+    // Console log for tracking
+    console.log('=== PDF View ===');
+    console.log('Product:', product.name);
+    console.log('PDF Path:', pdfPath);
+    console.log('PDF URL:', pdfUrl);
+    console.log('Protocol:', window.location.protocol);
+    console.log('Origin:', window.location.origin);
+    console.log('================');
+    
+    // Try to load PDF
+    loadPDFInViewer(pdfUrl, pdfViewer, pdfLoading, pdfError);
+}
+
+function loadPDFInViewer(pdfUrl, pdfViewer, pdfLoading, pdfError) {
+    const pdfEmbed = document.getElementById('pdf-embed');
+    const pdfObject = document.getElementById('pdf-object');
+    
+    // Hide all viewers initially
+    pdfViewer.style.display = 'none';
+    pdfEmbed.style.display = 'none';
+    pdfObject.style.display = 'none';
+    
+    // Method 1: Try iframe (most compatible)
+    pdfViewer.src = pdfUrl + '#toolbar=1&navpanes=1&scrollbar=1';
+    pdfViewer.style.display = 'block';
+    
+    // Hide loading after a short delay (PDF should start loading)
+    setTimeout(() => {
+        pdfLoading.style.display = 'none';
+        // Keep iframe visible - it should load the PDF
+        console.log('PDF viewer initialized');
+    }, 500);
+}
+
+function openPDFInNewTab() {
+    if (!currentProductId) return;
+    
+    const pdfPath = getProductPDFPath(currentProductId);
+    let pdfUrl;
+    
+    if (window.location.protocol === 'file:') {
+        pdfUrl = pdfPath;
+    } else {
+        pdfUrl = new URL(pdfPath, window.location.origin).href;
+    }
+    
+    window.open(pdfUrl, '_blank');
+    console.log('Opening PDF in new tab:', pdfUrl);
+}
+
+function closePDFModal() {
+    const pdfModal = document.getElementById('pdf-modal');
+    const pdfViewer = document.getElementById('pdf-viewer');
+    const pdfError = document.getElementById('pdf-error-message');
+    const pdfLoading = document.getElementById('pdf-loading');
+    
+    pdfModal.classList.remove('show');
+    pdfViewer.src = '';
+    pdfViewer.style.display = 'none';
+    pdfError.style.display = 'none';
+    pdfLoading.style.display = 'block';
+    document.body.style.overflow = '';
+}
+
+function downloadProductPDF() {
+    if (!currentProductId) return;
+    
+    const product = productsData.find(p => p.id === currentProductId);
+    const pdfPath = getProductPDFPath(currentProductId);
+    const pdfName = getProductPDFName(currentProductId);
+    
+    // Use local PDF file path
+    const pdfUrl = pdfPath;
+    
+    // Create a temporary link to download the PDF
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = pdfName;
+    link.target = '_blank';
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Console log for tracking
+    console.log('=== PDF Download ===');
+    console.log('Product:', product.name);
+    console.log('PDF Name:', pdfName);
+    console.log('PDF Path:', pdfPath);
+    console.log('PDF URL:', pdfUrl);
+    console.log('===================');
+}
+
+// Close PDF modal when clicking outside
+document.addEventListener('click', (e) => {
+    const pdfModal = document.getElementById('pdf-modal');
+    if (e.target === pdfModal) {
+        closePDFModal();
+    }
+});
 
 // Load testimonials
 function loadTestimonials(testimonials) {
@@ -212,11 +412,11 @@ function handlePopupSubmit(event) {
     
     // Get form data
     const formData = {
-        name: document.getElementById('popup-name').value,
-        phone: document.getElementById('popup-phone').value,
-        email: document.getElementById('popup-email').value,
-        company: document.getElementById('popup-company').value,
-        message: document.getElementById('popup-message').value,
+        name: document.getElementById('popup-name').value.trim(),
+        phone: document.getElementById('popup-phone').value.trim(),
+        email: document.getElementById('popup-email').value.trim(),
+        company: document.getElementById('popup-company').value.trim(),
+        message: document.getElementById('popup-message').value.trim(),
         timestamp: new Date().toISOString()
     };
     
@@ -227,9 +427,67 @@ function handlePopupSubmit(event) {
     console.log('Formatted Data:', JSON.stringify(formData, null, 2));
     console.log('======================');
     
-    alert('Thank you for your request! Our expert will call you back soon.');
+    // Send WhatsApp message
+    sendWhatsAppMessage(formData);
+    
+    // Show success message
+    alert('Thank you for your request! Opening WhatsApp to send your message...');
     event.target.reset();
     closeModal();
+}
+
+// WhatsApp Message Function
+function sendWhatsAppMessage(formData) {
+    // Get WhatsApp number from company data (remove spaces and special characters)
+    // Format: Country code + number (e.g., 918851165175 for +91 8851165175)
+    let whatsappNumber = '918851165175'; // Default number from company data
+    
+    // Try to get from company data if loaded
+    if (typeof companyData !== 'undefined' && companyData.contact && companyData.contact.whatsapp) {
+        whatsappNumber = companyData.contact.whatsapp.replace(/\D/g, ''); // Remove non-digits
+    }
+    
+    // Format the message
+    const message = formatWhatsAppMessage(formData);
+    
+    // Create WhatsApp URL
+    // Format: https://wa.me/PHONENUMBER?text=MESSAGE
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp in new tab/window
+    window.open(whatsappUrl, '_blank');
+    
+    // Console log
+    console.log('=== WhatsApp Message ===');
+    console.log('Phone Number:', whatsappNumber);
+    console.log('Message:', message);
+    console.log('WhatsApp URL:', whatsappUrl);
+    console.log('=======================');
+}
+
+// Format WhatsApp message
+function formatWhatsAppMessage(formData) {
+    let message = `Hello Hydroflux Engineering!\n\n`;
+    message += `I would like to request an expert call back.\n\n`;
+    message += `*Contact Details:*\n`;
+    message += `👤 Name: ${formData.name}\n`;
+    message += `📱 Phone: ${formData.phone}\n`;
+    message += `📧 Email: ${formData.email}\n`;
+    
+    if (formData.company) {
+        message += `🏢 Company: ${formData.company}\n`;
+    }
+    
+    if (formData.message) {
+        message += `\n*Requirement/Message:*\n${formData.message}\n`;
+    }
+    
+    message += `\n---\n`;
+    message += `Submitted via Website Form`;
+    message += `\nTime: ${new Date().toLocaleString()}`;
+    
+    return message;
 }
 
 // Show modal after delay (5 seconds)

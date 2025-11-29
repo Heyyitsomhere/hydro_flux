@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Chemical Industry",
+        "icon": "fa-flask",
+        "description": "Specialized treatment for complex chemical effluents."
+    },
+    {
+        "id": 2,
+        "name": "Hospitals",
+        "icon": "fa-hospital",
+        "description": "Safe and compliant medical waste water treatment."
+    },
+    {
+        "id": 3,
+        "name": "Textile Industry",
+        "icon": "fa-tshirt",
+        "description": "Efficient dye and chemical removal systems."
+    },
+    {
+        "id": 4,
+        "name": "Pharmaceuticals",
+        "icon": "fa-pills",
+        "description": "High-purity water systems and effluent treatment."
+    },
+    {
+        "id": 5,
+        "name": "Automobile",
+        "icon": "fa-car",
+        "description": "Treatment for oil, grease, and heavy metal effluents."
+    },
+    {
+        "id": 6,
+        "name": "Food & Beverage",
+        "icon": "fa-utensils",
+        "description": "Hygiene-focused water treatment solutions."
+    },
+    {
+        "id": 7,
+        "name": "Paper & Pulp",
+        "icon": "fa-scroll",
+        "description": "Large scale water recycling and treatment."
+    },
+    {
+        "id": 8,
+        "name": "Hotels & Resorts",
+        "icon": "fa-hotel",
+        "description": "Sustainable water management for hospitality."
+    }
+]

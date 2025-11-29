@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industries We Serve - Jovial Water Engineering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="components/header.js" defer></script>
+    <script src="components/footer.js" defer></script>
+    <script src="components/whatsapp-widget.js" defer></script>
+</head>
+
+<body>
+    <app-header></app-header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h1>Industries We Serve</h1>
+            <p>Providing specialized water treatment solutions across diverse sectors.</p>
+        </div>
+    </section>
+
+    <!-- Industries Content -->
+    <section class="industries-section">
+        <div class="container">
+            <div class="industries-intro">
+                <p>At Jovial Water Engineering, we understand that every industry has unique water treatment
+                    requirements.
+                    Our expertise spans across a wide range of sectors, allowing us to deliver customized, efficient,
+                    and
+                    compliant solutions. From managing complex chemical effluents to ensuring high-purity water for
+                    pharmaceuticals,
+                    we are dedicated to supporting your operational goals with sustainable water management.</p>
+            </div>
+
+            <div class="industries-slider-container">
+                <button class="slider-arrow prev" onclick="scrollIndustries(-1)"><i
+                        class="fas fa-chevron-left"></i></button>
+                <div class="industries-slider" id="industries-slider">
+                    <!-- Loaded dynamically -->
+                </div>
+                <button class="slider-arrow next" onclick="scrollIndustries(1)"><i
+                        class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <app-footer></app-footer>
+
+    <!-- Popup Form Modal (Shared) -->
+    <div id="popup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Request Expert Call Back</h2>
+            <p>We specialize in the manufacturing and supply of top-quality Effluent Treatment Plants (ETP), Sewage
+                Treatment Plants (STP), Demineralization (DM) plants, Reverse Osmosis (RO) plants, and more.</p>
+            <form onsubmit="handlePopupSubmit(event)">
+                <div class="form-group">
+                    <label for="popup-name">Name *</label>
+                    <input type="text" id="popup-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-phone">Phone *</label>
+                    <input type="tel" id="popup-phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-email">Email *</label>
+                    <input type="email" id="popup-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-company">Company</label>
+                    <input type="text" id="popup-company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="popup-message">Requirement</label>
+                    <textarea id="popup-message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Submit Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <whatsapp-widget></whatsapp-widget>
+    <script src="app.js"></script>
+</body>
+
+</html>

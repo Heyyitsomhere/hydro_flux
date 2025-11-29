@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Jovial Water Engineering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="components/header.js" defer></script>
+    <script src="components/footer.js" defer></script>
+</head>
+<body>
+    <app-header></app-header>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Learn more about our company, vision, and mission.</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="overview" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Jovial Water Engineering</h2>
+            <p class="section-subtitle" id="company-overview"></p>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="vision-section">
+        <div class="container">
+            <div class="vision-content">
+                <div class="vision-header">
+                    <span class="inception">Incepted in <span id="founded-year"></span></span>
+                    <h2 class="section-title">Our Vision</h2>
+                </div>
+                <p class="vision-text" id="vision-text"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="mission-section">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="mission-text" id="mission-text"></p>
+        </div>
+    </section>
+
+    <app-footer></app-footer>
+
+    <!-- Popup Form Modal (Shared) -->
+    <div id="popup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Request Expert Call Back</h2>
+            <p>We specialize in the manufacturing and supply of top-quality Effluent Treatment Plants (ETP), Sewage Treatment Plants (STP), Demineralization (DM) plants, Reverse Osmosis (RO) plants, and more.</p>
+            <form onsubmit="handlePopupSubmit(event)">
+                <div class="form-group">
+                    <label for="popup-name">Name *</label>
+                    <input type="text" id="popup-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-phone">Phone *</label>
+                    <input type="tel" id="popup-phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-email">Email *</label>
+                    <input type="email" id="popup-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-company">Company</label>
+                    <input type="text" id="popup-company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="popup-message">Requirement</label>
+                    <textarea id="popup-message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Submit Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

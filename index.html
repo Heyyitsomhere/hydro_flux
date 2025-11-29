@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,75 +8,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="components/header.js" defer></script>
+    <script src="components/footer.js" defer></script>
+    <script src="components/whatsapp-widget.js" defer></script>
 </head>
-<body>
-    <!-- Top Contact Bar -->
-    <div class="top-bar">
-        <div class="top-bar-container">
-            <div class="top-bar-left">
-                <a href="mailto:support@jovial_water.co.in">
-                    <i class="fas fa-envelope"></i> support@jovial_water.co.in
-                </a>
-            </div>
-            <div class="top-bar-right">
-                <a href="tel:+918851165175">
-                    <i class="fas fa-phone"></i> +91 8851165175
-                </a>
-                <a href="tel:01144463328">
-                    <i class="fas fa-phone-alt"></i> 011-44463328
-                </a>
-            </div>
-        </div>
-    </div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-tint"></i>
-                <span>Jovial Water Engineering</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li class="dropdown">
-                    <a href="#about">About Us <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#about">Company Overview</a></li>
-                        <li><a href="#mission">Our Mission</a></li>
-                        <li><a href="#vision">Our Vision</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#products">Our Products <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu" id="products-dropdown">
-                        <!-- Loaded dynamically -->
-                    </ul>
-                </li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#news">News Room</a></li>
-                <li><a href="#careers">Career</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+<body>
+    <app-header></app-header>
 
     <!-- Hero Section / Home -->
     <section id="home" class="hero-section">
         <div class="hero-slides">
-            <div class="hero-slide active" data-bg="1" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80');"></div>
-            <div class="hero-slide" data-bg="2" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=80');"></div>
-            <div class="hero-slide" data-bg="3" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80');"></div>
+            <div class="hero-slide active" data-bg="1"
+                style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80');">
+            </div>
+            <div class="hero-slide" data-bg="2"
+                style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=80');">
+            </div>
+            <div class="hero-slide" data-bg="3"
+                style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80');">
+            </div>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Integrated Waste Water Solution</h1>
             <p class="hero-tagline">Reduce, Reuse, Recycle...</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Get Started</a>
-                <a href="#products" class="btn btn-secondary">Our Products</a>
+                <a href="contact.html" class="btn btn-primary">Get Started</a>
+                <a href="products.html" class="btn btn-secondary">Our Products</a>
             </div>
         </div>
         <div class="hero-controls">
@@ -102,172 +62,59 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="about-section">
+    <!-- Core Values Section -->
+    <section class="core-values-section">
         <div class="container">
-            <h2 class="section-title">About Jovial Water Engineering</h2>
-            <p class="section-subtitle" id="company-overview"></p>
-        </div>
-    </section>
-
-    <!-- Vision Section -->
-    <section id="vision" class="vision-section">
-        <div class="container">
-            <div class="vision-content">
-                <div class="vision-header">
-                    <span class="inception">Incepted in <span id="founded-year"></span></span>
-                    <h2 class="section-title">Our Vision</h2>
+            <div class="core-values-grid">
+                <div class="core-value-card">
+                    <i class="fas fa-leaf core-value-icon"></i>
+                    <h3>Environment</h3>
+                    <p>We prioritize environmental stewardship in everything we do, ensuring sustainable solutions.</p>
                 </div>
-                <p class="vision-text" id="vision-text"></p>
+                <div class="core-value-card">
+                    <i class="fas fa-flask core-value-icon"></i>
+                    <h3>Research & Development</h3>
+                    <p>Quality assurance and innovation are at the core of our operations.</p>
+                </div>
+                <div class="core-value-card">
+                    <i class="fas fa-cogs core-value-icon"></i>
+                    <h3>High-tech Engineering</h3>
+                    <p>Pioneers in high-technology engineering, pushing the boundaries of innovation.</p>
+                </div>
+                <div class="core-value-card">
+                    <i class="fas fa-users core-value-icon"></i>
+                    <h3>Certified Engineers</h3>
+                    <p>Our certified engineers deliver excellence in every engineering solution.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section id="mission" class="mission-section">
+    <!-- About Preview Section -->
+    <section class="about-section">
         <div class="container">
-            <h2 class="section-title">Our Mission</h2>
-            <p class="mission-text" id="mission-text"></p>
+            <h2 class="section-title">About Jovial Water Engineering</h2>
+            <p class="section-subtitle" id="company-overview"></p>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="about.html" class="btn btn-primary">Read More</a>
+            </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products-section">
+    <!-- Products Preview Section -->
+    <section class="products-section">
         <div class="container">
             <h2 class="section-title">Jovial Water Products</h2>
             <div class="products-grid" id="products-grid">
                 <!-- Loaded dynamically -->
             </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid" id="services-grid">
-                <!-- Loaded dynamically -->
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="products.html" class="btn btn-primary">View All Products</a>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section">
-        <div class="container">
-            <h2 class="section-title">Our Client's Testimonies</h2>
-            <div class="testimonials-grid" id="testimonials-grid">
-                <!-- Loaded dynamically -->
-            </div>
-        </div>
-    </section>
-
-    <!-- News Room Section -->
-    <section id="news" class="news-section">
-        <div class="container">
-            <h2 class="section-title">Latest News About Water Treatment Industry</h2>
-            <div class="news-grid" id="news-grid">
-                <!-- Loaded dynamically -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Career Section -->
-    <section id="careers" class="career-section">
-        <div class="container">
-            <h2 class="section-title">Career Opportunities</h2>
-            <div class="career-content">
-                <p>Join our team of experts in revolutionizing water treatment solutions. We offer exciting career opportunities for talented individuals passionate about sustainability and innovation.</p>
-                <a href="#contact" class="btn btn-primary">Apply Now</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-wrapper">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Delhi Office</h4>
-                        <p id="address-delhi"></p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Mumbai Office</h4>
-                        <p id="address-mumbai"></p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4>Phone</h4>
-                        <p id="phone-number"></p>
-                        <p id="phone-secondary"></p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p id="email-address"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4><i class="fas fa-tint"></i> Jovial Water Engineering</h4>
-                    <p id="footer-tagline"></p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <a href="#home">Home</a>
-                    <a href="#about">About Us</a>
-                    <a href="#products">Products</a>
-                    <a href="#services">Services</a>
-                    <a href="#news">News Room</a>
-                    <a href="#contact">Contact Us</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Our Products</h4>
-                    <a href="#products">Sewage Treatment Plant</a>
-                    <a href="#products">Effluent Treatment Plant</a>
-                    <a href="#products">Ultra Filtration System</a>
-                    <a href="#products">Zero Liquid Discharge</a>
-                    <a href="#products">Reverse Osmosis</a>
-                    <a href="#products">De Mineralization Plant</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-phone"></i> <span id="footer-phone"></span></p>
-                    <p><i class="fas fa-envelope"></i> <span id="footer-email"></span></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Jovial Water Engineering Pvt Ltd. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#">Terms & Condition</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#contact">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <app-footer></app-footer>
 
     <!-- Product Detail Modal -->
     <div id="product-modal" class="modal">
@@ -286,59 +133,24 @@
                 <button class="btn btn-primary" onclick="downloadProductPDF()">
                     <i class="fas fa-download"></i> Download PDF
                 </button>
-                <a href="#contact" class="btn btn-secondary" onclick="closeProductModal()">
+                <a href="contact.html" class="btn btn-secondary" onclick="closeProductModal()">
                     <i class="fas fa-phone"></i> Get Quote
                 </a>
-                <button class="btn btn-secondary" onclick="closeProductModal()" style="background: #6c757d; color: white; border: none;">
+                <button class="btn btn-secondary" onclick="closeProductModal()"
+                    style="background: #6c757d; color: white; border: none;">
                     Close
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- PDF Viewer Modal -->
-    <div id="pdf-modal" class="modal">
-        <div class="modal-content pdf-modal-content">
-            <div class="pdf-modal-header">
-                <h2 id="pdf-modal-title">Product Catalog</h2>
-                <div class="pdf-modal-controls">
-                    <button class="btn btn-primary" onclick="downloadProductPDF()">
-                        <i class="fas fa-download"></i> Download
-                    </button>
-                    <span class="close-modal" onclick="closePDFModal()">&times;</span>
-                </div>
-            </div>
-            <div class="pdf-modal-body">
-                <div id="pdf-viewer-container">
-                    <iframe id="pdf-viewer" src="" frameborder="0" style="display: none; width: 100%; height: 100%; min-height: 600px;"></iframe>
-                    <div id="pdf-loading" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; color: #666; min-height: 400px;">
-                        <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 20px;"></i>
-                        <p>Loading PDF...</p>
-                    </div>
-                    <div id="pdf-error-message" style="display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; color: #666; min-height: 400px;">
-                        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #ffc107; margin-bottom: 20px;"></i>
-                        <h3>PDF cannot be displayed in browser</h3>
-                        <p>Your browser may not support PDF viewing. Please try one of the options below:</p>
-                        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-                            <button class="btn btn-primary" onclick="downloadProductPDF(); closePDFModal();">
-                                <i class="fas fa-download"></i> Download PDF
-                            </button>
-                            <button class="btn btn-secondary" onclick="openPDFInNewTab()" style="background: #6c757d; color: white; border: none;">
-                                <i class="fas fa-external-link-alt"></i> Open in New Tab
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Popup Form Modal -->
+    <!-- Popup Form Modal (Shared) -->
     <div id="popup-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2>Request Expert Call Back</h2>
-            <p>We specialize in the manufacturing and supply of top-quality Effluent Treatment Plants (ETP), Sewage Treatment Plants (STP), Demineralization (DM) plants, Reverse Osmosis (RO) plants, and more.</p>
+            <p>We specialize in the manufacturing and supply of top-quality Effluent Treatment Plants (ETP), Sewage
+                Treatment Plants (STP), Demineralization (DM) plants, Reverse Osmosis (RO) plants, and more.</p>
             <form onsubmit="handlePopupSubmit(event)">
                 <div class="form-group">
                     <label for="popup-name">Name *</label>
@@ -367,6 +179,8 @@
         </div>
     </div>
 
+    <whatsapp-widget></whatsapp-widget>
     <script src="app.js"></script>
 </body>
+
 </html>

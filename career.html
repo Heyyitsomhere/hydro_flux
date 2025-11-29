@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career - Jovial Water Engineering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="components/header.js" defer></script>
+    <script src="components/footer.js" defer></script>
+    <script src="components/whatsapp-widget.js" defer></script>
+</head>
+
+<body>
+    <app-header></app-header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h1>Career Opportunities</h1>
+            <p>Join our team and build a sustainable future.</p>
+        </div>
+    </section>
+
+    <!-- Career Section -->
+    <section id="careers" class="career-section">
+        <div class="container">
+            <div class="career-intro">
+                <p>Join our team of experts in revolutionizing water treatment solutions. We offer exciting career
+                    opportunities for talented individuals passionate about sustainability and innovation.</p>
+            </div>
+
+            <div class="career-grid">
+                <!-- Current Openings -->
+                <div class="current-openings">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Current Openings</h2>
+
+                    <div class="job-card">
+                        <h3>Senior Water Treatment Engineer</h3>
+                        <div class="job-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Delhi/NCR</span>
+                            <span><i class="fas fa-briefcase"></i> Full Time</span>
+                            <span><i class="fas fa-clock"></i> 5+ Years Exp.</span>
+                        </div>
+                        <p class="job-description">
+                            We are looking for an experienced Water Treatment Engineer to lead our project design and
+                            implementation teams.
+                        </p>
+                        <ul class="job-requirements">
+                            <li>Experience in designing STP, ETP, and RO plants.</li>
+                            <li>Strong knowledge of environmental regulations.</li>
+                            <li>Ability to manage site teams and project timelines.</li>
+                            <li>B.Tech/M.Tech in Environmental or Chemical Engineering.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-card">
+                        <h3>Sales Executive</h3>
+                        <div class="job-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Mumbai</span>
+                            <span><i class="fas fa-briefcase"></i> Full Time</span>
+                            <span><i class="fas fa-clock"></i> 2-3 Years Exp.</span>
+                        </div>
+                        <p class="job-description">
+                            Dynamic sales professional required to drive business growth in the industrial water
+                            treatment sector.
+                        </p>
+                        <ul class="job-requirements">
+                            <li>Proven track record in B2B sales.</li>
+                            <li>Excellent communication and negotiation skills.</li>
+                            <li>Knowledge of water treatment products is a plus.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Application Form -->
+                <div class="application-form-container">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Apply Now</h2>
+                    <div class="application-form-card">
+                        <form action="mailto:avi8654340@gmail.com" method="post" enctype="text/plain">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="Phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="position">Position Applied For *</label>
+                                <select id="position" name="Position" required>
+                                    <option value="">Select Position</option>
+                                    <option value="Senior Water Treatment Engineer">Senior Water Treatment Engineer
+                                    </option>
+                                    <option value="Sales Executive">Sales Executive</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Years of Experience</label>
+                                <input type="text" id="experience" name="Experience">
+                            </div>
+                            <div class="form-group">
+                                <label for="resume">Resume Link (Google Drive/LinkedIn)</label>
+                                <input type="url" id="resume" name="Resume_Link" placeholder="https://...">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Cover Letter / Message</label>
+                                <textarea id="message" name="Message" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Submit Application
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <app-footer></app-footer>
+
+    <!-- Popup Form Modal (Shared) -->
+    <div id="popup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Request Expert Call Back</h2>
+            <p>We specialize in the manufacturing and supply of top-quality Effluent Treatment Plants (ETP), Sewage
+                Treatment Plants (STP), Demineralization (DM) plants, Reverse Osmosis (RO) plants, and more.</p>
+            <form onsubmit="handlePopupSubmit(event)">
+                <div class="form-group">
+                    <label for="popup-name">Name *</label>
+                    <input type="text" id="popup-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-phone">Phone *</label>
+                    <input type="tel" id="popup-phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-email">Email *</label>
+                    <input type="email" id="popup-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-company">Company</label>
+                    <input type="text" id="popup-company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="popup-message">Requirement</label>
+                    <textarea id="popup-message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Submit Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <whatsapp-widget></whatsapp-widget>
+    <script src="app.js"></script>
+</body>
+
+</html>
